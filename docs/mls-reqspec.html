@@ -1,0 +1,2956 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="robots" content="index,follow"/>
+    <link rel="stylesheet" type="text/css" href="../style/main.css"/>
+    <title>Oliver Doepner</title>
+</head>
+
+<body>
+
+<div id="navi">
+    <iframe src="../navi.html"></iframe>
+    <a href="../navi.html" class="invisible">sitemap</a>
+
+    <div class="center">
+        <img src="../pics/icons/html5-css3.png"
+             width="100" height="43" alt="HTML5/CSS3 logo"
+             usemap="#html5-css3-map"/>
+        <map name="html5-css3-map">
+            <area shape="rect" coords="0,0,50,43" alt="HTML5"
+                  href="http://validator.w3.org/check?uri=referer"
+                  title="This page claims to be HTML5 compliant"/>
+            <area shape="rect" coords="51,0,100,43" alt="CSS3"
+                  href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3"
+                  title="This page claims to use valid CSS3"/>
+        </map>
+    </div>
+
+</div>
+
+<div id="content">
+
+    <img src="multi-language.png" style="float:right;"/>
+
+    <h1>Multiple Language Support in International Software</h1>
+
+    <p class="smaller">
+        <em>[Published Oct 2000, reflects technology at the time]</em>
+    </p>
+
+    <h2>Language Support: Overview</h2>
+
+    <p>
+        This document
+        describes the requirements for multiple language support in software
+        applications and IT services. E-commerce is assumed as the primary
+        field for these services and applications.</p>
+
+    <h3>The E-commerce Scenario </h3>
+
+    <p>
+        In an e-commerce
+        scenario there are companies that run a business and want to use
+        information technology (like IT software, IT hardware, data,
+        knowledge and so on) to improve their service. For clarity these
+        parties are called <em>"e-com providers"</em> and their
+        relevant employees are called <em>"e-com operators"</em>. The
+        persons or organizations that utilize the e-com services and pay for
+        them are simply called <em>"customers"</em>. The software
+        company that develops the solutions for the e-com provider is simply
+        called <em>"international"</em>.</p>
+    <p>
+        In the era of
+        global communication networks the notion of an "application"
+        running as an "installation" on a certain "machine"
+        is not fully appropriate. At least in the case of the World Wide Web
+        the term "service" seems more applicable. The user
+        interface (UI) of such a service is split: a server produces markup
+        source code that describes the user interface but the presentation of
+        data and user interaction is done by a web browser. The rise of WAP,
+        WML and PDAs (Personal Digital Assistants) increases the distribution
+        of communication services even more.</p>
+    <p>
+        In this document
+        the term <em>"user agent"</em> is used for the devices and
+        software that let (potential) customers "browse the net".
+        The term <em>"application"</em> is used for a service that
+        provides content to such browsers and also for "installations"
+        of an "in house" application used by e-com operators. The
+        user agents are external components that can only be controlled
+        within the capabilities they offer. The server-side components and
+        the "in house" components are subject to the software
+        development of international.</p>
+
+    <h3>Internationalization</h3>
+
+    <p>
+        <em>Internationalization</em>
+        abbreviated as "i18n" is often treated as the
+        process that externalizes all components of an (existing) application
+        that deal with linguistic and other localized resources and behavior.
+        After the step of "i18n" the application&#146;s language
+        should be easily replaceable. The process of <em>localization</em>
+        ("l10n") then produces translated and re-localized
+        resources and results to adapted behavior of the application in
+        different languages. Support of these processes is sometimes called
+        <em>"National Language Support"</em> (NLS).</p>
+    <p>
+        NLS often
+        assumes the replacement of language in an application-wide sense: One
+        language is used for all dialogues and text data within the
+        application. In contrast, <em>"Multiple Language Support"</em>
+        (MLS) relates to multilingual flexibility at runtime: Several
+        languages can be selected - even intermingled in any dialog.</p>
+    <p>
+        MLS includes or
+        builds upon NLS. MLS requires facilities to mix symbols from
+        different human writing systems - like the Latin, Cyrillic, Urdu
+        (Arabic) or Han (Asian) script. The set of desired languages leads to
+        a set of required symbols and thereby to required encoding schemes,
+        fonts, input methods, format styles, character and string sizes and
+        so on. The main part of this document is concerned with MLS. NLS is
+        only described for completeness.</p>
+
+    <h3>National Language Support (NLS) </h3>
+
+    <p>
+        NLS comprises
+        selection of a default language either by choosing the right binary
+        to ship or download or by default settings within a choice of
+        supported languages. The first approach is the less flexible and
+        limits functionality.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>There is no hard-coded application-wide language in international-applications.</em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>There is a certain set of supported languages that the application is able to use.</em>
+        </dd>
+    </dl>
+
+    <p>
+        The notion of
+        "supported languages" is useful and straightforward here.
+        In the next chapter it is refined, though.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>A global setting determines the default language of the application.</em></dd>
+    </dl>
+
+    <p>
+        These basic
+        requirements belong to traditional NLS. They are fundamental but not
+        at all sufficient.</p>
+
+    <h3>Multiple Language Support (MLS)</h3>
+
+    <p>
+        MLS is necessary
+        because often multiple languages have to be used within one
+        installation of the application. This applies to countries with more
+        than one official language (e.g. in Switzerland) or to communications
+        with participants from different countries. In such situations it is
+        necessary to support more than one language at runtime. Since the
+        e-commerce market is global, especially for telecom products, this
+        specifically applies to international applications.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>For international applications National Language Support (NLS) is not
+            sufficient. Multiple Language Support (MLS) is required in the sense
+            described in this document.</em>
+        </dd>
+    </dl>
+
+    <p>
+        Consequently it
+        is not enough to provide only a possibility to extend static
+        linguistic resources for texts of the user interface. It has to be
+        possible to extend the dynamically retrieved linguistic "content",
+        too.</p>
+
+    <h3>General Application Architecture </h3>
+
+    <p>
+        The terms "user interface" and "content" touch the area of general
+        application architecture. To put up clear and specific requirements
+        we need some defined terms for that area.</p>
+    <p>
+        The application
+        is assumed to have several <em>layers of functionality</em>: The
+        <em>persistence layer</em> handles the storage of data that persists
+        after execution and is kept in a reliable memory like a database or a
+        file system on hard disk. The <em>presentation layer</em> is
+        responsible for the appearance and behavior of the user interface and
+        includes components that control the way data is presented. We use
+        the term <em>"data export layer"</em> in this document to
+        refer to those components that export structured data for printing,
+        email, fax or to communicate with other applications. The <em>business
+        layer</em> is the functional core of the application that performs
+        calculations and manipulations of temporary data objects (<em>"business
+        objects"</em>) and accesses the persistence layer as well as it
+        serves content to the presentation layer.</p>
+    <p>
+        We distinguish
+        <em>static persistence components</em> that cannot be changed by the
+        business layer and <em>variable persistence components</em> that can be
+        changed by the business layer. This distinction is important to
+        differentiate <em>content data, </em>i.e. variable persistent data<em>,</em>
+        and <em>static persistent data</em>.</p>
+    <p>
+        External
+        components have to communicate with the application via a defined
+        interface. The communication of the application&#146;s presentation
+        layer with an external user agent is an example for that. The
+        application includes a component that we call the <em>"international user
+        agent". </em>It provides the "in house<em>"</em> user
+        interface to the application that is typically used by e-com
+        operators.</p>
+    <p>
+        All layers of
+        functionality must be suited for multiple language support.
+        Linguistic settings have implications for user interface, data
+        storage, input and output methods and document structure. </p>
+    <p>
+        MLS imposes some
+        requirements that go beyond the NLS necessities. In the following
+        paragraph aspects of MLS are discussed. Along with the considerations
+        requirements are evolved to define MLS for international-applications.</p>
+
+    <h2>General Implications of Multiple Language Support</h2>
+
+    <h3>Character Representation </h3>
+
+    <p>
+        To deal with
+        multiple languages we need appropriate means for the representation
+        of text data. Languages in the world differ in their visual
+        appearance due to different sorts of writing systems and symbolic
+        composition. That raises the issue of scripts and characters.
+        Moreover, for display and printing specific fonts have to be
+        available.</p>
+
+    <h4>Scripts, character sets and encodings</h4>
+
+    <p>
+        First we give
+        some definitions of terms often mixed and misused.</p>
+    <p>
+        The term
+        <em>"linguistic data"</em> is used in this document -
+        instead of "text" - to refer to any data that has different
+        representation with respect to the language we use or the region we
+        are in. Linguistic data can be text as well as formatted data like
+        dates or currencies and it can also be speech samples. </p>
+    <p>
+        A <em>script</em>
+        is a writing system used by certain cultural and linguistic
+        societies. A <em>character set</em> is the set of symbols corresponding
+        to one or more script(s). A <em>character encoding</em> is a numeric
+        representation scheme for a set of symbols, usually specified in an
+        encoding table that assigns a unique number to each character. A
+        <em>"character encoding standard"</em> is a common definition
+        of a character encoding for a certain character set.</p>
+    <p>
+        Each character
+        encoding standard yields a family of languages that can be encoded in
+        that standard, e.g. the ISO 8859-1 yields English, Italian, Spanish,
+        Danish, German, French, Finnish and some others, but not Greek or
+        Turkish.</p>
+    <p>
+        For the
+        representation of character data the use of standards is always a
+        good idea. There are established standards for a couple of language
+        families. Unfortunately big companies in the IT business have tended
+        to use proprietary encodings and some still do. That is one reason
+        why conversion between encodings is necessary in many cases.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>
+            Character encoding standards are used to achieve compatibility
+            between different encoding schemes and languages.
+        </em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>
+            For every supported language the main character encoding standards
+            are supported.
+        </em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>
+            Conversion between character encodings is only limited by the
+            range of the character sets that the encodings describe. The codes
+            for characters in the intersection of the two character sets are
+            always converted correctly
+        </em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>
+            The application is capable to convert data between any pair of
+            supported character encoding standards.
+        </em>
+        </dd>
+    </dl>
+
+    <p>
+        A list of
+        relevant character encoding standards is listed in the "character
+        encoding" section of the "Reference Resources"
+        document.</p>
+
+    <h4>Unicode</h4>
+
+    <p>
+        There is a
+        character set and a character encoding standard called "Unicode"
+        that greatly eases the representation of multilingual data. It is
+        intended to include all characters used throughout the world and
+        defines a reliable coding scheme for a unification of many scripts.
+        The family of languages yielded by the Unicode standard comprises
+        almost all languages used in the world.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Multilingual texts can contain characters from all languages used
+            in the world. MLS must not be limited by technical problems of
+            character encoding.</em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>Multilingual data is represented using character encoding
+            standards to allow as many languages as possible in one text. The use
+            of a recent version of the Unicode standard is
+            assured.</em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>Character conversion to and from Unicode is provided without loss
+            of character information.</em>
+        </dd>
+    </dl>
+
+    <p>
+        There is a
+        technical format for Unicode text that has many advantages: the UTF8
+        Unicode format. It can be used as internal format for text
+        representation and processing. Conversion between Unicode UTF-8 and
+        many other encoding standards is already supported by a lot of tools
+        and software components. See "Unicode-enabled tools" in the
+        "Reference Resources" document.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Import and export of UTF-8 encoded text data
+            is supported.</em>
+        </dd>
+    </dl>
+
+    <h4>Fonts</h4>
+
+    <p>
+        To display and
+        print text data we need fonts: A font describes how each character
+        looks on the screen or in the printout. As long as appropriate fonts
+        are available from the operating system all characters of the
+        currently used encoding standard have to appear on screen or paper.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Display and printing of text data makes use of all fonts provided
+            by the operating system or runtime environment.</em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>For all supported languages and character encoding standards fonts
+            are provided either to go with the application or as download from
+            the website of international.</em>
+        </dd>
+    </dl>
+
+    <p>
+        The availability
+        of fonts might depend on the operating system. True Type Fonts (TTFs)
+        for example are not yet fully supported by the X window system on
+        some Unix OS. The provision of fonts also depends on the type of user
+        interface.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Recommendations of fonts to be used are given in the documentation
+            of the application. Customers and their system administrators are
+            thereby enabled to install the necessary font
+            components.</em>
+        </dd>
+    </dl>
+
+    <h3>Language definition</h3>
+
+    <p>
+        To talk about multi-language
+        support for applications we need to define the term &quot;language&quot;
+        first.</p>
+    <p>
+        A <em>language</em>
+        is considered as a set of rules for the structure of textual or
+        phonetic expressions to use for human interaction. A language is
+        usually based on a set of <em>graphemic entities</em> ("characters"),
+        a set of <em>lexical items</em> ("words") and a set of rules
+        ("grammar"). The grammar defines how lexical items can be
+        combined to form valid <em>expressions</em> ("sentences").
+        For some languages lexical items and characters are almost the same.</p>
+    <p>
+        The focus in
+        this chapter is on character-based text processing. An estimation and
+        distinction of structural complexity determines the set of languages
+        for which multiple language support seems possible in that sense.</p>
+    <p>
+        No estimation of
+        "phonetic feasibility" of certain languages or language
+        classes can be developed in this document. Some considerations on
+        phonetic interaction with the user appear in subsequent sections.</p>
+    <p>
+        The term
+        "supported" in the previous chapters was quite vague. We
+        now define more precisely what "language support" means.
+        Focussing on character-based text processing we introduce the notion
+        of <em>"feasible languages"</em>. The following requirement
+        describes the motivation of this concept:</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>It is possible to add feasible languages to the application
+            without recompilation, i.e. without any coding effort in the source
+            code of the "business layer" of the
+            application.</em>
+        </dd>
+    </dl>
+
+    <p>
+        After this
+        process the language becomes an <em>"available language"</em>
+        and is effectively supported then. The set of available languages is
+        always a subset of the set of feasible languages.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>After a language has been added to the application it becomes part
+            of the "available languages". All options and capabilities
+            of MLS described for "available languages" then apply to
+            it.</em>
+        </dd>
+    </dl>
+
+    <p>
+        For every
+        application a <em>reference language</em> is needed. The reference
+        language is available when the application is delivered for the first
+        time and cannot be deleted or become unavailable. </p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The set of available languages is never empty. A reference
+            language that has to be chosen by the e-com provider is always
+            available. When the application is initially installed all necessary
+            linguistic data is available in the
+            reference language.</em>
+        </dd>
+    </dl>
+
+    <p>
+        The English
+        language is considered the base language that should be available in
+        every application. This is reasonable not only for the use but also
+        for the development and maintenance process that can be coordinated
+        and evaluated using English as reference language.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>It is highly recommended to choose English as the reference
+            language. Software development process, translation process and
+            administration are quicker then.</em>
+        </dd>
+    </dl>
+
+    <p>
+        More details on
+        "adding a language" and similar tasks are given in the
+        "maintenance of MLS" section.</p>
+    <p>
+        The following
+        chapters figure out different levels of feasibility along with
+        relevant language classifications.</p>
+
+    <h3>Language classification by character set</h3>
+
+    <p>
+        The <em>character set of a language</em> is the character set of the script(s) of that
+        language, i.e. the set of all graphemic entities used in the writing
+        system of that language. In this chapter the size of this set is
+        discussed as a criterion to classify languages.</p>
+    <p>
+        The notion of "characters" simplifies the structure of language. Printed
+        English texts can be considered as a totally ordered sequence of
+        tokens each of which designates a unique symbol from a set of around
+        100 "characters". But in other languages there are accents,
+        diacritics or even "sub-strokes" within "characters",
+        e.g. in Japanese or Korean. That is why the term <em>"graphemic entity"</em> is used.</p>
+    <p>
+        Graphemic entities are "complete characters" that can be put in
+        sequential lines, one after the other, like in "E.s.p.a.&ntilde;.a",
+        to form valid "character strings". In contrast,
+        "E.s.p.a.~.n.a" is not a sequence of graphemic entities.
+        The "&ntilde;" is an example for a "compound"
+        entity. The "n" is a component of it that also is an entity
+        itself, e.g. in the word "nada". But the other component
+        "~" is no graphemic entity itself.</p>
+    <p>
+        The number of
+        different graphemic entities is what we usually call the "size
+        of the character set" (abbreviated as "nchar"). Having
+        said that, it is possible to make some classifications, using rough
+        numeric measurement of <em>nchar</em> as "rule of the thumb".</p>
+    <p>
+        European
+        languages usually have a quite close relationship between graphemic
+        entities and articulated sounds. Therefore their character sets are
+        quite small (with less than 200 symbols in the alphabet). These
+        languages are called <em>&quot;alphabetic</em>&quot; languages with
+        regards to the {alpha, beta, &#133;} order of many of these character
+        sets. By means of the derived lexicographic ordering they also bear
+        an inherent facility for sorting algorithms.</p>
+    <p>
+        Examples of
+        alphabetic languages include those based on the Latin script like
+        English, German, Spanish, Swedish, modern Turkish, Rumanian and much
+        more. Others examples are Cyrillic-based languages like Russian, or
+        the Greek language with its script. There are non-European examples,
+        too.</p>
+    <p>
+        The alphabetic
+        languages are the easiest to support because the graphemic entities
+        fit on a keyboard (with use of SHIFT and ALT) and can be encoded
+        using 8 bits even without character overlay for compound entities.
+        Fonts are available for all major alphabetic languages on any
+        operating system.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Alphabetic languages (nchar &lt; 200) are feasible
+            languages.</em>
+        </dd>
+    </dl>
+
+    <p>
+        If the graphemic
+        entities relate to syllables rather than single sounds the term
+        "syllabic language" applies. There can be distinct
+        characters for different pronunciation variants of syllables. Due to
+        the greater number of syllables (and their variants) such languages
+        also have much bigger "character sets". An example for a
+        mixture of alphabetic and syllabic languages is the Thai language.
+        Syllabic languages usually have some hundreds of graphemic entities.
+        To simplify the classification we define any language that has a
+        character set of that size to be a <em>"syllabic language"</em>.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Syllabic languages (200 &lt; nchar &lt; 1000) are feasible
+            languages if they can be treated as alphabetic languages with big
+            character sets.</em>
+        </dd>
+    </dl>
+
+    <p>
+        In many <em>syllabic</em>
+        languages the graphemic entities do not only relate to articulation
+        but also to meaning. Sometimes the shapes of the symbols depict
+        semantic aspects. The "character sets" is even bigger for
+        such languages and usually comprises thousands of graphemic entities,
+        for example in Japanese, Korean or Mandarin. These languages are
+        called <em>"ideographic syllabic languages"</em>. American or
+        European keyboards do not suffice to type these languages. Specific
+        input methods, character encoding schemes and fonts are necessary for
+        these languages.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Ideographic syllabic languages (nchar &gt; 1000) are feasible
+            languages if they can be treated as alphabetic languages with huge
+            character sets and appropriate input methods are available.</em>
+        </dd>
+    </dl>
+
+    <p>
+        A language <em>"can be treated as an alphabetic language"</em> if there
+        is a total
+        order for the set of all graphemic entities with each entity
+        identified by a unique number. If corresponding standards for
+        character encoding and necessary fonts exist then the language can be
+        technically treated like an alphabetic language. Lexicographic
+        sorting then relies on the provided ordering.</p>
+    <p>
+        The language
+        classes mentioned cover a big part of the known human languages. Due
+        to the definition of alphabetic languages the previous requirements
+        can be summarized as:</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>A languages is feasible if it meets the following conditions
+            <ul>
+                <li>text of that language can be represented as linear sequence of
+                    graphemic entities (characters)
+                </li>
+                <li>graphemic entities (characters) are taken from a linearly ordered
+                    character set for which character encoding standards exist.
+                </li>
+                <li>fonts are available for the encoding standard and the operating
+                    system
+                </li>
+                <li>the character set is included in the Unicode Standard 3.0</li>
+            </ul>
+        </em>
+        </dd>
+    </dl>
+
+    <p>
+        The last
+        condition is a technical one that presumably does not exclude any
+        language that satisfies all other conditions. But it is a good
+        condition for feasibility that can be easily evaluated.</p>
+    <p>
+        These conditions
+        imply that compound graphemic entities (like "&ntilde;" in
+        Spanish, "&ouml;" in German, complex Thai characters or
+        even the compound symbols for Hangul syllables) have to be considered
+        as single elements of the character set with unique encoding and
+        position in the linearly ordered character set.</p>
+    <p>
+        This strict
+        "alphabetic approach" has the advantage of simplicity but
+        also bears some ignorance. For example, there are input methods for
+        compound graphemic entities in many languages that use the concept of
+        <em>"combining characters"</em> and <em>"character
+        over</em>lay" to reduce the number of required keys on the
+        keyboard. See the section on input methods in the chapter on user
+        interface.</p>
+
+    <h3>Language classification by text flow</h3>
+
+    <p>
+        Textual data
+        usually consists of lines of text. Lines are linear sequences of
+        characters. Words mostly appear in the sequence as blank-separated
+        sub-sequences. Some languages, like Thai, do not separate words by
+        such delimiters (see "information on special issues" in the
+        "Reference Resources" document).</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Correct line breaking is only guaranteed for languages that
+            separate words by certain delimiters, e.g. space characters. For
+            non-delimiting languages specific methods of text processing have to
+            be applied.</em>
+        </dd>
+    </dl>
+
+    <p>
+        The direction of
+        text flow depends on the language. In most cases the linear sequences
+        extend along the left-right-dimension. Languages that behave this way
+        are called &quot;row-based&quot;.</p>
+    <p>
+        A big part of
+        the human languages "flows" from left to right
+        (L-R-languages), with the first line on the vertical top of the text
+        field. In other languages (R-L-languages) lines flow from right to
+        left, while lines are still being added from top to bottom. Examples
+        of the latter include Arabic and Hebrew.</p>
+    <p>
+        These two
+        classes cover most of the written human languages. There used to be
+        bilinear writing systems with text flow changing direction with every
+        new line. That style of writing was applied in certain languages of
+        ancient times but is not used anymore. But still direction of text
+        flow might be mixed in a given text, since expressions of
+        L-R-languages can be mixed with those of R-L-languages, e.g. Hebrew
+        with English foreign words. Such change of text flow is called a
+        &quot;turn&quot;.</p>
+    <p>
+        There are also
+        languages that organize text in vertical columns rather than
+        horizontal lines. We refer to those textual arrangements as
+        &quot;column-based&quot;.</p>
+    <p>
+        The row-based
+        languages differ to a great extent from column-based ones with
+        respect to page layout, presentation of multimedia documents and
+        general text output logic.</p>
+    <p>
+        For
+        international-applications row-based text handling is the default and probably
+        column-based text handling will not be supported at all.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Row-based text handling is the default behavior. Column-based
+            arrangement of text is treated as a separate class of presentation
+            that is not supported yet.</em>
+        </dd>
+    </dl>
+
+    <p>
+        Having said that, a general requirement can be stated:</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Text flow in both L-R-manner and R-L-manner is
+            supported.</em>
+        </dd>
+    </dl>
+
+    <p>
+        That means that direction of text flow does not affect "feasibility"
+        of a language. The requirements in the previous section define
+        feasibility and the required linear arrangement of text is also met
+        by R-L-arrangement.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Necessary "turns" of text flow are possible in any
+            context at any level of input or output. Turns are necessary whenever
+            a change of the currently used language implies that text flow
+            changes direction.</em>
+        </dd>
+    </dl>
+
+    <p>
+        Refer to the
+        section &quot;contexts for linguistic settings&quot; for a definition
+        of &quot;currently used language&quot; and to "documents and
+        text types" for further implications of bi-directional text.</p>
+    <p>
+        Column-based
+        text flow is one of the "special issues" in the "Reference
+        Resources" document.
+    </p>
+
+    <h2>Contexts for linguistic settings</h2>
+
+    <h3>Linguistic Settings</h3>
+
+    <p>
+        Without a fixed application-wide language it is necessary
+        to establish concepts for
+        language selection. At runtime the application always has something
+        like a <em>"currently used language"</em>,
+        <em>"currently used format methods"</em> and <em>"currently used input
+        methods"</em> depending on the current context. The notion of a
+        <em>"currently used locale"</em> is convenient to summarize
+        these settings. "Locales" are widely used concepts to
+        accomplish multiple language support:</p>
+    <p>
+        A <em>locale</em>
+        simply identifies a certain language in a certain region or cultural
+        variant, e.g. American English, Canadian French, Swiss Italian and so
+        on. A locale can be regarded as a combination of a language code (see
+        ISO 639 in the &quot;Reference Resources&quot; document), a region
+        code (see ISO 3166) and maybe some additional information. A bundle
+        of linguistic settings (e.g. format information) is associated to
+        each locale.</p>
+    <p>
+        At any time of
+        execution the application utilizes a "current linguistic
+        setting" which can be regarded as a bundle of parameters to
+        determine its linguistic behavior. Locale specifications are used
+        within these settings.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Linguistic settings use a standardized system to identify
+            languages and (regional) variants of those. The &quot;locale&quot;
+            concept based on ISO 639 and ISO 3166 serves as a basic layer for
+            that system. </em>
+        </dd>
+    </dl>
+
+    <p>
+        Linguistic
+        settings govern the linguistic behavior of the application: the
+        language for static text elements taken from translation tables, the
+        language for content retrieval from the database, the formats for
+        times, dates and numbers, the sorting method, the input methods and
+        so on. Usually all these settings are determined by a given locale.
+    </p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Linguistic settings are used to effectuate appropriate linguistic
+            behavior of the application concerning
+            <ul>
+                <li>choice of text translations and presentation templates</li>
+                <li>text layout and text flow</li>
+                <li>selection of input methods</li>
+                <li>data formats</li>
+                <li>sorting logic</li>
+                <li>character encoding and font selection</li>
+            </ul>
+        </em>
+        </dd>
+    </dl>
+
+    <p>
+        To keep the
+        requirements specification open for design decisions, the "locale"
+        concept is not used as a technical term within the requirements. The
+        more general term "linguistic settings" is used instead. As
+        stated above, locales are kept in mind as useful keys to linguistic
+        settings but there might be additional elements that cannot be
+        derived from locale values.
+    </p>
+
+    <h3>Contexts</h3>
+
+    <p>
+        Applications for
+        global markets with multiple participants in international networks
+        have to be adaptable to different tasks of communication. Their ML
+        features must be context-sensitive, must allow for flexible but
+        straightforward customization and should hide complexity by using
+        reasonable default settings.</p>
+    <p>
+        To achieve
+        context-sensitivity we need to define "context". A context
+        is considered as a part of the application&#146;s execution with its
+        circumstances described by certain parameters.</p>
+    <p>
+        To talk
+        especially about the contexts where language is concerned, we define
+        a <em>"linguistic operation"</em> or <em>"l-operation"</em>
+        to be any process within the application that deals with, outputs or
+        receives linguistic data. Consequently we distinguish l-operations
+        for linguistic output<em> (l-out-operations)</em>, linguistic input
+        (<em>l-in-operations</em>) and internal linguistic processing
+        (<em>l-processes</em>).</p>
+    <p>
+        There are two main types of l-out-operations:
+    <ul>
+        <li>
+            A <em>"frame"</em> is generated for the user interface
+            (described in the next chapter)
+        </li>
+        <li>
+            An <em>"exported document"</em> is generated (described in
+            another following chapter)
+        </li>
+    </ul>
+    </p>
+    <p>
+        The main type of l-in-operation occurs when
+    <ul>
+        <li>
+            linguistic data is entered by a user.
+        </li>
+    </ul>
+    </p>
+    <p>
+        An important type of l-process is:
+    <ul>
+        <li>A collection of linguistic data is sorted</li>
+    </ul>
+    </p>
+    <p>
+        Using these
+        terms, a <em>context</em> is constituted by an<em> l-operation </em>of a
+        certain<em> type </em>with some<em> parameters</em>. Those parameters
+        include the human <em>participants</em> of the communication process,
+        the <em>purpose</em> of the l-operation and possibly the <em>location</em>
+        (i.e. the locale-values of the environment that the application runs
+        on) and the <em>communication and perception </em>channel of the
+        l-operation.</p>
+    <p>
+        The <em>participants</em>
+        of an l-operation can be <em>operators</em>, <em>customers</em>,
+        <em>administrators </em>or other users. Their identity and linguistic
+        preferences are usually known at runtime. Registered users can
+        specify their <em>linguistic preferences</em>. These preferences are
+        stored in a persistent component like a user database. For
+        non-registered users linguistic preferences can possibly be derived
+        from the settings of their user agent. Otherwise language selection
+        can be offered at runtime and used throughout a session. A <em>session</em>
+        is a subsequent set of l-operations that address to the same user.</p>
+    <p>
+        The <em>purpose</em>
+        of the l-operation can be directed towards the user or towards
+        administration support (error messages, log files, administration
+        dialogs), correspondence to a third party, official or legal matters
+        and so on. The purpose determines a certain <em>linguistic view</em>
+        that the l-operation has to anticipate.</p>
+    <p>
+        The
+        <em>communication channel</em> is the technical means of communication
+        including the protocol/syntax of the data transmission and the type
+        of listener/sender to communicate with. The following descriptions of
+        l-operations give an idea of possible communication channels: "send
+        an HTML page to text-based user agent", "receive input data
+        from a user using encoding X in format Y" or "send sound
+        samples to the audio output" and so on.</p>
+    <p>
+        The <em>perception
+        channel</em> is the primary type of human sensory perception that is
+        used during the communication. It could be audio, visual or tactile
+        if the operation directly addresses the user, otherwise the
+        perception channel is void.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Linguistic behavior of the application is sensitive to the context
+            of execution. A context is defined as a linguistic operation of a
+            certain type with context parameters. Therefore a context is
+            constituted by
+            <ul>
+                <li>The type of the l-operation</li>
+                <li>the human participants of the communication</li>
+                <li>the purpose of the l-operation</li>
+                <li>the location of the execution components</li>
+                <li>the communication channel</li>
+                <li>the perception channel</li>
+            </ul>
+        </em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>Multiple language support is provided for every l-operation.
+            L-operations are defined as the main contextual units for
+            MLS.</em>
+        </dd>
+    </dl>
+
+    <p>
+        Most of these
+        parameters have to be modeled as values from finite sets of
+        possibilities.</p>
+    <p>
+        For a specific
+        application there has to be a concrete model of contextuality with
+        parameter ranges like C-TYPE = {frame-out, print-out, email-out,
+        user-in, sort}, C-ROLE = {operator, admin, customer), C-PART = { &lt;set
+        of user IDs&gt; }, C-PURP = {operate, browse, customize, help,
+        error, log}, C-LOC = {en, de, fr, ar}, C-COMM = {gui-html, text-html,
+        wml, swing-ml}and C-PERC = {audio, visual, tactile}. </p>
+    <p>
+        Additional
+        parameters and attributes might be relevant for specific
+        applications.</p>
+
+    <h3>Customization</h3>
+
+    <p>
+        In the previous
+        sections we described what "settings" and "contexts"
+        are. Now we define how contexts and settings are associated to
+        actually control the linguistic behavior of the application.</p>
+    <p>
+        There are three
+        stages at which linguistic behavior can be controlled: <em>customization</em>,
+        <em>negotiation</em> and <em>manual selection</em> at runtime.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The linguistic behavior of the application can be controlled at
+            three stages to allow flexibility as well as robustness:
+            <ul>
+                <li>Customization of default settings</li>
+                <li>Negotiation of practicable settings at runtime</li>
+                <li>manual selection by the user to override present settings</li>
+            </ul>
+        </em>
+        </dd>
+    </dl>
+
+    <p>
+        <em>Customization</em>
+        defines the desired default behavior in terms of rules that derive
+        linguistic settings from context parameters.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The customization is used to influence the linguistic behavior of
+            l&nbsp;operations. These customization rules specify how linguistic
+            default settings are derived from context parameters.</em>
+        </dd>
+    </dl>
+
+    <p>
+        Such rules could
+        be simple implications like "PARAM=A then SETTING=X", e.g.
+        "PURPOSE=admin then locale=en_US".</p>
+    <p>
+        In some
+        situations it could be necessary to restrict or extend the linguistic
+        behavior of an l&nbsp;operation in a general way, e.g. to enable or
+        disable manual language selection, to activate or to switch off
+        parallel language usage, to disable a perception channel, switch off
+        negotiation or similar things.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Customization can also impose conditional rules to alter
+            linguistic runtime flexibility. This includes rules that
+            <ul>
+                <li>enable or disable manual language selection</li>
+                <li>activate or switch off parallel language usage (PML)</li>
+                <li>disable a perception channel</li>
+                <li>override the negotiation stage</li>
+            </ul>
+        </em>
+        </dd>
+    </dl>
+
+    <p>
+        Such rules could
+        be simple implications like "PART=user then PML=no".</p>
+    <p>
+        Due to the wide
+        range of possible customizations users should not be responsible or
+        even permitted to edit all these settings. Therefore a two-layer
+        approach seems useful:
+    </p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The customization consists of a protected system layer that is
+            only accessible by authorized administrators and a user layer that is
+            accessible for users of the application. For every registered user
+            language preferences can be set</em>
+        </dd>
+    </dl>
+
+    <p>
+        Changes to the customization are not required very often. The application is
+        installed with a reasonably pre-configured set of rules. Changes to
+        the customization are possible at runtime in a customization dialog
+        but not during a current l-operation.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>After installation the application executes robustly without any linguistic
+            customization by the e-com provider because of reasonably
+            pre-configured rules for linguistic behavior.</em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>The e-com provider or authorized administrators/users are enabled
+            to change customizations at runtime in a
+            customization dialog.</em>
+        </dd>
+    </dl>
+
+    <h3>Negotiation</h3>
+
+    <p>
+        In a certain
+        context the application of rules does not necessarily lead to valid
+        and practicable linguistic settings. That is because technical
+        limitations or other unpredictable constraints could make the desired
+        language setting impossible, e.g. if a user agent does not support
+        the character encoding for a certain language or if an un-registered
+        user has preferences outside the available range of languages. To
+        find reasonable compromises in such situations the negotiation of
+        linguistic settings, or l-negotiation, is provided.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>A linguistic
+            negotiation facility is available at runtime to find practicable
+            linguistic settings that follow the customized rules as far as
+            possible but also consider technical restrictions of external
+            components and other unpredictable constraints for
+            language use.</em>
+        </dd>
+    </dl>
+
+    <p>
+        The worst case
+        for ML support is the ASCII-only situation where just the characters
+        for the English character set are available. This can only occur if a
+        very limited user agent requests linguistic data.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The worst case of l-negotiation is to fall back to plain text
+            (ASCII only) mode to serve very limited user
+            agents.</em>
+        </dd>
+    </dl>
+
+    <p>
+        If a language is
+        not available "second guessing" of approximate relatives is
+        sometimes useful, e.g. if there is no Mandarin available the user
+        might be happy with Cantonese.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The l-negotiation is able to find linguistic settings approximate
+            to the desired ones.</em>
+        </dd>
+    </dl>
+
+    <h3>Manual Selection</h3>
+
+    <p>
+        <em>Manual selection</em> is the means to let the user override the negotiated
+        linguistic behavior. This option is only available if permitted by
+        the customization rules.</p>
+    <p>
+        Within an
+        l-operation the current language setting might change, e.g. in case
+        of mixed multilingual text being entered. In those cases the user has
+        to be able to choose the "currently used language" manually
+        and thereby affect the linguistic settings (e.g. direction of text
+        flow).</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Within the limitations defined by the customization the user is
+            enabled to change linguistic settings at runtime. Especially for
+            multilingual data input this option has to
+            be available.</em>
+        </dd>
+    </dl>
+
+    <h3>Parallelism</h3>
+
+    <p>
+        As already
+        mentioned in the previous section, sometimes only one language is not
+        sufficient to communicate with the user. For example in a call-center
+        the sales assistant&#146;s language might differ from the caller&#146;s
+        language and representations of both (or more) languages would have
+        to be displayed. Data entry can also require parallel multiple
+        language support to gain the desired input. Other l-operations might
+        impose similar requirements. This feature is called &quot;parallel
+        multiple languages&quot; (PML).</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The behavior of l-operations can be customized to handle parallel
+            multiple languages. </em>
+        </dd>
+    </dl>
+
+    <p>
+        From a usability
+        perspective there has to be a trade-off between synoptic presentation
+        and selectable views. Since the number of PMLs should not be
+        arbitrarily limited the user interface has to be scalable.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The number of PMLs is not limited to a hard-coded number. The user
+            interface is designed to deal with PMLs using synoptic, selectable or
+            temporary views to ensure
+            usability. </em>
+        </dd>
+    </dl>
+
+    <h2>ML Aspects of the User Interface (UI)</h2>
+
+    <p>
+        The components
+        of the application that the user communicates with are called
+        <em>"user interface"</em>. A user interface is a combination of hardware
+        and software components.</p>
+
+    <h3>User agents</h3>
+
+    <p>
+        The application
+        delegates UI tasks to a "user agent". The application
+        (server) and the user agent (client) use a defined protocol for data
+        exchange. </p>
+    <p>
+        If we want to
+        talk explicitly about the internet-based scenario with an external
+        user agent we use the term &quot;<em>external user interface</em>&quot;.
+        If only international components including an international user agent are involved and
+        the user interface is completely in our hands, we use the term
+        &quot;<em>internal user interface</em>&quot;.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Full control of linguistic behavior, including control of input
+            methods, is guaranteed for the internal user interface provided by an
+            international user agent.</em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>An external user interface provided by an external user agent can
+            not be fully controlled by the application. The application has to
+            rely on the interface and standard
+            behavior of the user agent.</em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>Recommendations are given about explicitly supported user agents
+            that are known to provide reliable
+            linguistic behavior.</em>
+        </dd>
+    </dl>
+
+    <h3>Perception channels and UI types</h3>
+
+    <p>
+        The <em>perception channel</em> is the primary type of human sensory
+        perception that is used during the communication with the user. It could be audio,
+        visual or tactile if the operation directly addresses the user,
+        otherwise the perception channel is void.</p>
+    <p>
+        For input and
+        output of linguistic data the visual and audio channel can be used.
+        Input is traditionally entered via keyboard and selections are made
+        with a pointer, typically a mouse or trackball. Another method to set
+        the focus to a certain element on screen is an &quot;up-down&quot;
+        mechanism like in TAB-key operated input masks in DOS, on mobile
+        phones or with remote controls for a TV-set. Output is displayed on
+        screen as text or other data usually structured within application
+        windows and elements of those.</p>
+    <p>
+        These visual
+        ways of interaction are assumed as the default behavior of the user
+        interface.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The visual perception channel is the primary means of interaction
+            with the user. Visual input and output appears on a display using a
+            keyboard for data entry and the usual method of pointing or setting
+            the focus on screen.</em>
+        </dd>
+    </dl>
+
+    <p>
+        Text can also be
+        communicated via the audio channel, e.g. using a headset as a
+        combination of microphone and speakers. Speech output might be
+        sampled or synthesized. A translation table for linguistic data could
+        contain sampled speech to corresponding to the stored strings.
+        Alternatively speech generation modules for specific languages could
+        be used to &quot;read&quot; the translation.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The I/O-methods to communicate linguistic data are designed for
+            extensibility. It is possible to support the audio channel in the
+            future.</em>
+        </dd>
+    </dl>
+
+    <p>
+        The way the
+        components of the user interface communicate with the user determines
+        the <em>type of user interface</em>. Different types of user interface
+        allow different scales of functionality and require different
+        linguistic behavior. We distinguish main types of user interfaces by
+        their primary perception channel and their communicative
+        capabilities: Audio UI, text-based UI and graphical user interface
+        (GUI).</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>MLS is available for at least three types of user interface:
+            audio-based, text-based and graphical user interface.</em>
+        </dd>
+    </dl>
+
+    <p>
+        The main types
+        of user interface are discussed in following sections.</p>
+
+    <h3>Organization of the user interface</h3>
+
+    <p>
+        A user interface
+        is usually organized as collection of pages or dialogs. To be
+        general, we introduce the notion of <em>"frames"</em> (not
+        HTML frames!) that correspond to units of communication. A frame can
+        be a <em>dialog</em> or a <em>screen</em>. A dialog is an interactive
+        screen that lets the user make some input. Both screens and dialogs
+        have an audible variant: <em>"audible screens"</em> that are
+        presented in an audible way and <em>audible dialogs</em> that allow
+        spoken or other user input.</p>
+    <p>
+        The components
+        of the application that control the way data is "wrapped"
+        and presented are called the <em>presentation layer</em> of the
+        application. The presentation layer is responsible for the appearance
+        of the user interface. For each frame there is a <em>presentation
+        template</em> that describes how the frame is presented to the user.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The user interface is organized as a collection of frames. The
+            presentation of a frame is controlled with presentation
+            templates.</em>
+        </dd>
+    </dl>
+
+    <p>
+        Apart from its
+        presentation a frame has some content: e.g. a frame could be a page
+        with a table and the values in the table cells would be the content
+        generated by the business layer. For the different types of user
+        interface this content would be presented differently, e.g. as a
+        structured set of speech events (that read the table loudly), as a
+        simple text-based table or as a table that can be rendered by a
+        graphical user agent like a web browser. For each of these variants
+        we use different presentation templates.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>For each type of user interface there are separate presentation
+            templates to control the presentation of a frame and its
+            content.</em>
+        </dd>
+    </dl>
+
+    <p>
+        To exploit the
+        table example a little more, consider possible column names: e.g.
+        "name", "description" and "price" for a
+        table that lists some consumer products. These column titles are
+        independent of the content that is filled in at runtime. But they
+        must be chosen with respect to the currently used language. This is
+        achieved using separate presentation templates for each of the
+        available languages.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>For each available language there are separate presentation
+            templates to control the presentation of a frame and its
+            content.</em>
+        </dd>
+    </dl>
+
+    <p>
+        Usually a frame
+        corresponds to an <em>l-out-operation</em> that generates the frame. A
+        linguistic setting is derived from the context of the l-operation and
+        the appropriate language is negotiated. This language is used at the
+        presentation level by choice of the right presentation template.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The generation of frames for the user interface is a main type of
+            l-operation (an l-out-operation). The principles for
+            context-sensitive MLS apply.</em>
+        </dd>
+    </dl>
+
+    <p>
+        Maybe we even
+        need distinct presentation templates for every sort of user agent
+        that we support: different web browsers, different WAP-enabled PDAs
+        and so on. We cannot anticipate all distinctions that have to be
+        made. But with the use of presentation templates we can generally
+        talk about frames as units of communication with associated content
+        without fixing the presentation scheme in advance. This is to allow
+        extensibility of the presentation layer.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The use of presentation templates makes the presentation layer extensible to
+            provide MLS on additional types or subtypes of user
+            interfaces.</em>
+        </dd>
+    </dl>
+
+    <h3>Audio-based User Interface</h3>
+
+    <p>
+        The audio-based
+        UI provides interaction with speech and sound. This can be useful for
+        disabled users, in situations where telephone is involved or simply
+        to utilize an additional perception channel to complement the visual
+        channel.</p>
+    <p>
+        The "voice
+        browser" initiative of the W3 Consortium (see
+        http://www.w3.org/Voice/) can be regarded as a first reference for
+        what we might support in the future.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The design of the multiple language support allows extension to
+            support user agents with audio-based user
+            interface.</em>
+        </dd>
+    </dl>
+
+    <p>
+        Apart from those
+        external user agents the application has capabilities to offer an
+        audio-based user interface via the international user agent.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The international user agent is capable to offer an audio-based user
+            interface.</em>
+        </dd>
+    </dl>
+
+    <h3>Text-based User Interface</h3>
+
+    <p>
+        A visual user
+        interface is sometimes restricted to text-based interactions (without
+        graphical window gadgets and multiple windows on a desktop) due to
+        limitations of the user agent, e.g. a text-based WWW-browser or a
+        WAP-enabled mobile phone. These technical limitations affect the
+        presentation.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>WML-based user interfaces on mobile phones are primarily
+            considered as text-based Uis. MLS for such user agents is lead by
+            this assumption.</em>
+        </dd>
+    </dl>
+
+    <p>
+        This can be
+        handled with appropriate presentation templates. The multiple
+        language support might be technically limited on such user agents.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>MLS is provided for user agents with text-based user interface if
+            they support appropriate character encoding standards and are capable
+            to display the necessary characters. Full MLS is only guaranteed for
+            Unicode-enabled user agents.</em>
+        </dd>
+    </dl>
+
+    <p>
+        The problem of
+        input methods for non-Latin character sets is especially virulent for
+        limited user agents like mobile phones or PDAs because mobile
+        hardware and embedded operating systems offer only limited
+        functionality.</p>
+    <p>
+        Text-based user
+        interfaces often use the notion of a focus, e.g. a cursor or
+        highlighted region. When the focus changes the currently used
+        linguistic setting might change, too.</p>
+    <p>
+        The problem is
+        again that this happens on the user agent.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>An external text-based user agent has to keep track of linguistic
+            settings when the focus changes. Correct behavior of such user agents
+            cannot be guaranteed the international
+            application.</em>
+        </dd>
+    </dl>
+
+    <h3>Graphical User Interface</h3>
+
+    <p>
+        The graphical
+        user interface is commonly used in modern applications on personal
+        computers or workstations to interact with the user. It consists of
+        graphical elements ("widgets") that usually reside in the
+        application window(s). Text fields, scrollbars, title bar, message
+        boxes, selection lists, labeled input fields are examples of GUI
+        elements. Many of these elements display linguistic data and have to
+        be aware of language settings. A GUI extends the notion of "focus"
+        since there is not just a highlighted region in the screen but also a
+        set of frames one of which has the focus, i.e. it is the
+        <em>"active window"</em>. Since different l-operations are associated to
+        different frames, the right linguistic settings have to be activated
+        whenever the focus is set to another frame or another input element
+        of the current frame.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>L-operations are associated with GUI frames and the linguistic
+            settings of these l-operations are associated with the GUI frames,
+            too. As the focus changes during execution the linguistic settings of
+            the focussed frame are activated.</em>
+        </dd>
+    </dl>
+
+    <p>
+        There are
+        different types of graphical user interfaces: Web-GUI on different
+        browsers, different hardware and operating systems as well as the
+        specific GUI of the international user agent.</p>
+    <p>
+        WAP-UI and
+        specific GUI types depending on the operating system and widget
+        library. The presentation of visual interactions to the user should
+        be separated from the content selection or business logic to keep
+        presentation method flexible. The user interface should therefore be
+        kept in mind as an abstract layer and not too many assumptions about
+        appearance should be hard-coded into generic GUI design.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Graphical user interfaces are supported using HTML or other frame
+            descriptions. </em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>The capabilities of the specific GUI styles are utilized as far as
+            standard definitions exist for them. Internet standards for markup
+            languages of the W3 Consortium and other agreed standards are used to
+            ensure compatibility.</em>
+        </dd>
+    </dl>
+
+    <h3>Accessibility</h3>
+
+    <p>
+        The guidelines
+        of the W3C for web accessibility are good starting point to make the
+        web-based GUI accessible for user with disabilities. At least one the
+        types of user interface that the application supports has to follow
+        these guidelines. See "http://www.w3.org/WAI/" for
+        references.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The application supports the accessibility guidelines specified in
+            the web accessibility initiative of
+            the W3C.</em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>Multiple language support allows extensions to integrate special
+            languages or language representations like braille or other support
+            for users with diabilities.</em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>The audio-based user interface can be a way to provide support for
+            disabled users.</em>
+        </dd>
+    </dl>
+
+    <h3>Input methods for linguistic data</h3>
+
+    <p>
+        Interactive frames of the user interface often include data input by the user.
+        This is considered another type of l-operation.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Input of linguistic data by the user is a main type of l-operation
+            (an l-in-operation). The
+            principles for
+            context-sensitive MLS
+            apply.</em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>The context for these l-in-operations is often inherited from the
+            precedent generation of the surrounding frame. Such inheritance leads
+            to a simplified derivation
+            and negotiation of
+            linguistic settings.</em>
+        </dd>
+    </dl>
+
+    <p>
+        There might be
+        problems with data entry in different languages using the same
+        keyboard. Since availability of required input hardware can not be
+        granted, software methods to fill this gap have to be available.
+        Selection tables for the specific character set could be a first
+        approach for such situations. For big character sets an intelligent
+        presentation of symbol tables is necessary to reduce the amount of
+        searching and selecting.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Hardware-based input methods are replaceable by software-driven
+            methods that only assume the means of some simple selection method as
+            described above. Ease of use is preserved by &quot;intelligent&quot;
+            methods of presentation
+            and choice. </em>
+        </dd>
+    </dl>
+
+    <p>
+        An "intelligent"
+        method could be to use probabilistic inferences about the characters
+        likely to be chosen next. The presentation of selection tables would
+        have to respect such probabilities. If software-driven input methods
+        exist that are already popular they should be used.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>For many languages well-accepted input methods that use
+            software-driven strategies already exist. For every available
+            language the most poplar one of such methods is available in the
+            application. </em>
+        </dd>
+    </dl>
+
+    <p>
+        Combining characters are used to reduce the number of different
+        characters on the keyboard.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>To improve typing for languages that make strong use of diacritics
+            or sub-strokes (compound graphemic entitites) the application
+            supports input methods with combining characters and character
+            overlay. </em>
+        </dd>
+    </dl>
+
+    <p>
+        Especially with
+        mobile communication devices there might be additional methods for
+        data entry. It should be kept in mind that external modules for
+        touch-screens, touch-pads or other input devices possibly affect the
+        user interface and l-operations to perform.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The methods to communicate linguistic data allow support of
+            additional input devices.</em>
+        </dd>
+    </dl>
+
+    <p>
+        Examples would be touch pads, sketch pads, etc.</p>
+
+    <h2>Documents and text types</h2>
+
+    <h3>Documents</h3>
+
+    <p>
+        The perspective
+        of multiple language support can be applied to the general concept of
+        a document as a structured collection of visual (linguistic and
+        non-linguistic) elements and representations of external objects.
+        Examples for the wide range of this concept are HTML-pages, any GUI
+        window or documents of any MIME-type in general.</p>
+    <p>
+        Among document
+        types there are bills, contracts, licenses, legal content and other
+        sorts of formal documents. Some of those documents should be kept in
+        their original language independent of the context. Examples are
+        legal documents like contracts or purposes like quotation.</p>
+    <p>
+        The vast domain
+        of documents can be divided into several subclasses. For specific
+        subclasses the implications for MLS are considered and requirements
+        concerning the treatment of these types of documents are discussed.</p>
+    <p>
+        If structured
+        content is generated by the application it might be represented as
+        certain kind of document. There is one sort of l-out-operations that
+        is specifically concerned with the generation of documents. We can
+        call them the <em>doc-out-operations</em>.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Documents of any kind are considered as structured collections of
+            content data, interactive elements and references. Documents can be
+            multi-lingual and multi-medial.</em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>A document model assigns a certain type and a certain structure to
+            each document. Linguistic properties are part of that model.</em>
+        </dd>
+    </dl>
+
+    <p>
+        Documents usually contain linguistic data.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The generation and processing of documents are main types of
+            l-operations since documents are expected to contain linguistic data.
+            The principles of MLS apply.</em>
+        </dd>
+    </dl>
+
+    <p>
+        The number of
+        languages in the document can be counted. This yields non-lingual,
+        monolingual and multilingual documents. An appropriate encoding for
+        the document and its inherent languages has to be used.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The representation of monolingual and especially multi-lingual
+            documents uses appropriate character encoding standards. The default
+            encoding standard for linguistic data in documents is Unicode.</em>
+        </dd>
+    </dl>
+
+    <p>
+        Documents are
+        similar to static representations of UI frames and can be printed and
+        exported in several ways. For example, documents can be saved and
+        loaded. Documents contain different types of text.</p>
+    <p>
+        Documents have a
+        prevalent direction of text flow. A document contains linguistic data
+        with possibly different direction of text flow. A document can be
+        mono-directional or bi-directional. A mono-directional document is
+        either left-to-right or right-to-left. </p>
+    <p>
+        A document has a
+        format that can depend on the linguistic setting</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The treatment of bi-directional documents follows the
+            specifications of the bi-directional algorithm by the Unicode
+            Consortium.</em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>More specific requirements for the representation of documents,
+            the layout and encoding of documents have to be stated. Especially
+            treatment of bi-directional documents needs to be specified more
+            concretely.</em>
+        </dd>
+    </dl>
+
+    <h3>Input and Output of documents</h3>
+
+    <p>
+        Printing of
+        documents, sending faxes and e-mails are common tasks that have to be
+        aware of language settings. These procedures are examples for output
+        l-operations, which do not communicate primarily via the display or
+        audio channel.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Printing of documents, sending faxes and e-mail and similar output
+            procedures are treated as l-operations with full sensitivity for
+            linguistic settings and customizations.</em>
+        </dd>
+    </dl>
+
+    <p>
+        An input method
+        that builds a bridge to the vast domain of formatted printed
+        documents is the scanning of documents combined with optical
+        character recognition (OCR). This could be used to convert those
+        documents into well-formatted, well-structured text files. Evaluation
+        and extraction of such files can be seen as another type of
+        l-operation.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Recognition of documents is an l-operation for data input
+            (l-in-operation) for documents with a defined format, document
+            structure and known language. The principals of MLS apply.</em>
+        </dd>
+    </dl>
+
+    <h3>Types of linguistic data</h3>
+
+    <p>
+        Documents and
+        frames embody linguistic data to a great extent. From an MLS point of
+        view linguistic data can have different levels of complexity. The
+        easiest case is linguistic data that is precisely and completely
+        known at design time: Texts that do not change, are not composed at
+        runtime and that do not contain any variable parts. For this sort of
+        linguistic data the term &quot;static linguistic data&quot; is used.
+        Static linguistic data can be kept in translation tables and
+        calculations concerning text size, font sizes and necessary character
+        sets can be made for all translations that are already present in the
+        tables.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Static linguistic data is available in translated form for every
+            available language. Only the persistent data provided in the
+            maintenance process is used. No static linguistic data appears in the
+            source code of the application.</em>
+        </dd>
+    </dl>
+
+    <p>
+        Dynamically
+        generated linguistic data that contains variable elements or needs to
+        be composed at runtime for other reasons poses a higher demand to the
+        logic of text processing. Information about the format of such text
+        has to be available for generic composition of such texts. These
+        formats might differ for different languages, e.g. when word order is
+        concerned and sentences or text must be combined with numerical
+        values, etc.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Dynamically formatted linguistic data automatically appears in the
+            format that is correct for the current linguistic setting. To make
+            this possible format specifications for such data are available in
+            persistent components and not in the source code. </em>
+        </dd>
+    </dl>
+
+    <p>
+        If we don&#146;t
+        know anything about the content or format of a block of linguistic
+        data at design time we call it &quot;<em>freestyle data</em>&quot;.
+        This case might appear when linguistic data is entered by a user in a
+        free text field or when external sources deliver such data without
+        any possible anticipations about the format it has. In the case of
+        free text no translation table approach is applicable. Automatic
+        translation of free text does not work since the task is too complex
+        and rather leads to amusing results.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Freestyle linguistic data is presented as it was imported or
+            entered. That implies that it appears in the language that was used
+            when the text was produced.</em>
+        </dd>
+    </dl>
+
+    <p>
+        The maximum size
+        is what we know at least for freestyle data. We can enforce format on
+        such data by an acceptance logic, e.g. by matching the input against
+        certain format patterns and only accept specific formats. But these
+        patterns can depend on the language that is used.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Freestyle data is replaced by dynamically formatted data whenever
+            possible to get higher control on such data. The used formats are
+            chosen with respect to the linguistic context.</em>
+        </dd>
+    </dl>
+
+    <p>
+        There is another
+        case of non-translation: Some texts or documents contain legal
+        content or have to keep their &quot;<em>original</em>&quot;
+        representation and language for other reasons. For example names of
+        global products that persist on the whole planet lead to &quot;original
+        text&quot; too.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Original linguistic data (like in citations or legal documents)
+            which has only one inherent language is not translated. It appears in
+            the original language independent of the current language settings.</em>
+        </dd>
+    </dl>
+
+    <h3>Other formatted data</h3>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Locale-specific formats for the following types of data are used:
+            Dates, numbers, currencies, addresses (maybe more).</em>
+        </dd>
+    </dl>
+
+    <h2>Storage of ML data</h2>
+
+    <h3>General requirements</h3>
+
+    <p>
+        To cooperate
+        with storage facilities in a straightforward manner they should
+        provide some functionality for MLS or at least NLS.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The database used has to support locale-aware storage of
+            linguistic data and provide all necessary character sets for string
+            representation, especially Unicode.</em>
+        </dd>
+    </dl>
+
+    <p>
+        Document storage
+        should be flexible and allow a distinction between content and
+        presentation of the document data. Special features in the document
+        storage system for multiple language support would ease document
+        handling.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The method of document storage should be flexible and allow a
+            distinction between content and presentation of the document data.
+            The representation of multilingual documents should be possible.
+            Multiple character sets, especially Unicode should be supported.</em>
+        </dd>
+    </dl>
+
+    <h3>Storage of Content Data</h3>
+
+    <p>
+        Content data is
+        maintained by the e-com provider and can be accessed and changed by
+        the application. It is primarily stored in the database. Content data
+        is often multilingual and the database design has to reflect this:</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The database
+            design reflects MLS: the structure of tables and relations is
+            designed to support multiple languages and instances of multilingual
+            entities contain all available translations.</em>
+        </dd>
+    </dl>
+
+    <h3>Storage of Static Linguistic Resources</h3>
+
+    <p>
+        The storage of
+        static linguistic resources is maintained in the design process. To
+        allow flexible runtime behavior all linguistic data is kept outside
+        the source code in resource files or presentation templates.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Linguistic
+            resources are organized as modules. Each module stores a certain type
+            of resource for the available languages.</em>
+        </dd>
+    </dl>
+
+
+    <h2>Maintenance of MLS</h2>
+
+    <p>
+        An application
+        that provides MLS needs principles on how to keep its linguistic
+        behavior extensible but consistent.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Maintenance principles for MLS are applied to keep linguistic
+            behavior of the application extensible but consistent and reliable.</em>
+        </dd>
+    </dl>
+
+    <p>
+        There are
+        different sorts of changes that can be made to the application. The
+        most important and frequent occurs when content data is changed,
+        deleted or added by the e-com provider. This happens at runtime via
+        certain components of the application that only the e-com provider
+        has access to.</p>
+    <p>
+        Other changes
+        like modifications of dialogs in the user interface or even the
+        addition of a new language to the application are less frequent and
+        require a <em>"design process"</em> that possibly involves
+        the software company.</p>
+    <p>
+        We introduce the
+        term <em>"design process"</em> that happens at <em>"design
+        time"</em> to distinguish the <em>maintenance of presentation</em>
+        <em>templates</em> and other static resources (e.g. static translation
+        tables) from the <em>maintenance of content data </em>that can happen
+        at runtime. This design process is not supported by the application
+        itself. Design and translation tools are used to do this work. The
+        design process does not require any access to the source code of the
+        application.</p>
+    <p>
+        The extension of
+        the application to support an <em>additional language</em> has effects
+        on both presentation and content data. It is performed by a
+        maintenance tool that has writing access to all linguistic resources
+        of the application that are subject to the necessary translation
+        process.</p>
+    <p>
+        The following
+        chapters describe the different processes in more detail.</p>
+
+    <h3>Maintenance of Content data</h3>
+
+    <p>
+        If the
+        application deals with multilingual content that is maintained,
+        updated and extended by the e-com provider then we need an ongoing
+        process of MLS maintenance: Whenever content data is added to the
+        persistence layer the provision of all necessary translations is
+        required for all available languages. The content must not be
+        accessible to user before the complete set of translations is added
+        to the database. We call this the <em>strict maintenance principle</em>.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The strict maintenance principle demands that translations of
+            content data are present in the persistence layer for all available
+            languages to make that content data available.</em>
+        </dd>
+    </dl>
+
+    <p>
+        This principle
+        is supported by the components that are used to edit the persistent
+        content data. A mechanism to mark incomplete content data must be
+        available to prevent this data from usage and to guide the
+        translation of content data.
+    </p>
+    <p>
+        It is very
+        likely that more than one person is involved in the translation and
+        that not all translations are ready at the same time. The
+        translations have to be technically produced in a controlled process.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The translators can either make their translations of content data
+            with a translation tool provided by international or they have to deliver the
+            translations in a defined format and encoding.</em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>The text files produced by translators are imported into the
+            persistence layer such that a consistent and valid state of content
+            data is guaranteed.</em>
+        </dd>
+    </dl>
+
+    <p>
+        To keep data
+        accessible while not all translations have been made the relevant
+        content data can be marked as <em>"deferred"</em> and the
+        data of an existing reference language is used instead of the
+        required translation.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The components that control the maintenance of content data keep
+            track of incomplete content data. Missing translations are marked as
+            "deferred" and a copy of content data from a reference
+            language is used instead.</em>
+        </dd>
+    </dl>
+
+    <p>
+        To point out that these copies are no proper replacement for long
+        term the "deferred" state of the translation is indicated after a
+        certain period of time.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>A "reminder" mechanism is used to indicate the deferred
+            state of translation.</em>
+        </dd>
+    </dl>
+
+    <p>
+        If too many
+        elements of content data are deferred for a certain language the
+        language cannot be considered "available" anymore. To
+        control such situations it is possible to pose a limit on the rate of
+        deferred entries. If this limit is reached the language becomes
+        unavailable. Then the language is not used by the application unless
+        more translations are provided. This has strong implications, so the
+        limit is customizable by the e-com provider (by administrators).</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>A limit can be set for the maximum rate of deferred elements of
+            content data of a language. If this limit is exceeded the language
+            becomes unavailable with all consequences. The language stays
+            unavailable until the rate of deferred translations is decreased.</em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>Authorized administrators are allowed to set the limit.</em>
+        </dd>
+    </dl>
+
+    <p>
+        The combination
+        of the strict maintenance principle with the possibility to defer
+        translations up to a controlled level should suffice to guarantee
+        consistency as well as flexibility of multilingual content data</p>
+
+
+    <h3>Maintenance of Presentation Templates</h3>
+
+    <p>
+        The components
+        of the application that control the way data is "wrapped"
+        and presented are called the <em>presentation layer</em> of the
+        application. It uses presentation templates and possibly other static
+        linguistic resources to generate the different presentations for
+        different languages. These resources are maintained and edited in the
+        design process using design tools.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The maintenance of presentation is done in the design process
+            using design tools. Presentation resources are static persistent
+            components that can not be changed by the application itself.</em>
+        </dd>
+    </dl>
+
+    <p>
+        Since there are
+        different presentation templates for each type of user interface and
+        for each language the set of all presentation templates can be
+        considered as at least 2-dimensional.</p>
+    <p>
+        To reduce the
+        design effort it would be nice to have something like "generic"
+        construction of presentation templates. This means that the
+        appearance of a certain frame on the user interface could be designed
+        for a set of languages without handcrafted adaptation of the layout
+        for single languages of that set. This is actually a hard thing to do
+        because the languages have to be very similar in their layout
+        properties.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Generic GUI design and automatic GUI generation is only possible
+            for a set of languages with common direction of text flow, common
+            range of font size and common maximums for the size of corresponding
+            text fields.</em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>For such languages the presentation templates of one language can
+            serve like a fill-in form to produce the presentation templates for
+            the other languages of the set.</em>
+        </dd>
+    </dl>
+
+    <p>
+        The presentation
+        templates for L-R-languages are especially difficult to design since
+        there is bi-directional text involved and user agents tend to assume
+        R-L-layout as default. The Unicode Standard defines a Bidirectional
+        algorithm that is the guideline to solve that problem.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Presentation templates for R-L-languages are designed according to
+            the Bi-directional Algorithm defined in the Unicode Standard.</em>
+        </dd>
+    </dl>
+
+    <p>
+        The issue of
+        generic design of presentation templates has another aspect: the
+        consistency of linguistic expression with specified meaning across
+        the user interface and across types of user interface or even across
+        languages. It is not desirable to have three different expression
+        like "Ger&auml;tetyp", "Produktart" and
+        "Baureihe" spread over several frames of the user interface
+        if they are supposed to have exactly the same meaning. That could
+        easily lead to misunderstanding. Considering legal aspects as well as
+        customer care such things should not happen. To provide a consistent
+        terminology for such "defined terms" we use dictionaries
+        that keep valid expressions to refer to defined terms. In the design
+        process a facility to insert such expressions is available.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The tools for the design process provide a facility to refer to
+            dictionary entries for defined terms.</em>
+        </dd>
+    </dl>
+
+    <h3>Maintenance of Languages</h3>
+
+    <p>
+        Language
+        management is maintenance of the set of available languages. A
+        languages can be added, disabled or deleted. To "add a language
+        to the application" means that a language considered "feasible"
+        is made available to the application such that all static texts of
+        the presentation layer are translated into the additional language
+        and all language-specific persistent data structures are extended to
+        comprise representations of language.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>It is possible to add a feasible language to the application. That
+            requires
+            <ul>
+                <li>
+                    translatio of all static texts of the presentation layer, e.g. in
+                    presentation templates, into the new language
+                </li>
+                <li>
+                    extension of all language-specific persistent data structures to
+                    comprise representations of the new language
+                </li>
+            </ul>
+        </em>
+        </dd>
+    </dl>
+
+    <p>
+        It has to be
+        possible to make additional languages available to the application
+        without any coding effort in the <em>"business layer"</em> of
+        the application.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Adding a language requires no coding effort in the "business
+            layer" of the application.</em>
+        </dd>
+    </dl>
+
+    <p>
+        A language can
+        be deleted from the set of available languages. This can occur if the
+        corresponding market does not justify the translation and maintenance
+        effort anymore. To prevent inconsistencies in the customization or
+        the user preferences this data has to be checked and possibly
+        adapted.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>An language can be deleted from the set of available languages.
+            This includes removal of all content data and presentation templates
+            for that language. Possibly the customization and user preferences
+            have to be validated to accomplish consistency.</em>
+        </dd>
+    </dl>
+
+    <p>
+        A language can
+        also be disabled if deletion is not appropriate because the language
+        is just temporarily out of interest.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>A language can be disabled by setting its limit for deferred
+            translation to zero.</em>
+        </dd>
+    </dl>
+
+    <h3>Quality assurance and Testing</h3>
+
+    <p>
+        The internationalization and localization of the application
+        components can be checked using the Java I18n L10n Toolkit. It
+        provides a verifier, message tool, translator and resource tool.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The MLS in the application components is verified with appropriate
+            verification tools</em>
+        </dd>
+    </dl>
+
+    <p>
+        The multiple language support has to be tested by native speakers.
+        The translation, presentation templates and content generation form a
+        complex system that has to prove its capabilities in situations of
+        everyday-use.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The multiple language support is tested by native speakers. New
+            translations have to be tested in a variety of real-world situations.</em>
+        </dd>
+    </dl>
+
+    <p>
+        The language
+        support is tested with a variety of user agents with a variety of
+        language and encoding preferences to check if sensible negotiation
+        takes place.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The multiple language support is tested with a variety of user
+            agents with a variety of language and encoding preferences</em>
+        </dd>
+    </dl>
+
+    <h3>Simple Maintenance Tools</h3>
+
+    <p>
+        To edit
+        multilingual resource files like presentation templates or
+        translation tables we need unicode-enabled text processing tools.
+    </p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Unicode-enabled text processing tools are used for ML maintenance.</em>
+        </dd>
+    </dl>
+
+    <p>
+        The unicode support of Microsoft office software is not reliable if we want
+        standard compliance.
+    </p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>The production of multilingual text files or documents does not
+            rely on proprietary variants of the unicode standard. For example
+            Microsoft Word is not considered a reliable Unicode-enabled product.</em>
+        </dd>
+    </dl>
+
+    <p>
+        The <A HREF="http://yudit.org/">Yudit Unicode editor</A>
+        and the <A HREF="http://www.abisource.com/">AbiWord word processor </A>
+        are examples for good Unicode-enabled products.</p>
+
+    <dl>
+        <dt>Requirement:</dt>
+        <dd><em>Yudit is recommended as a reference text editor for Unicode files
+            on Linux due to its variety of input methods, font and encoding
+            support.</em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>The standard compliance of HTML generation is tested with tools to
+            check HTML syntax according to W3C standards and, if possible, layout
+            according to certain style guides (own international styles guide or some
+            standard).</em>
+        </dd>
+        <dt>Requirement:</dt>
+        <dd><em>A recommended tool for evaluation of HTML and XHTML document
+            structure is the
+            <A HREF="http://www.w3.org/Amaya/">W3C Amaya browser</A>.</em>
+        </dd>
+    </dl>
+
+    <p>
+        An interesting
+        browser plugin with XML and Unicode support is
+        <A HREF="http://www.alanwood.net/unicode/utilities_viewers.html#ibabble">iBabble</A>.
+        It might be worth evaluating it as a support tool for maintenance.
+    </p>
+
+    <h2>Glossary</h2>
+
+    <dl>
+        <dt>Accessibility</dt>
+        <dd><em>
+            the capability of the application to provide a user interface
+            that can be accessed by users with disabilities, guidelines of
+            W3C/WAI are a good reference
+        </em>
+        </dd>
+        <dt>Addition of a language</dt>
+        <dd><em>
+            the process to make a feasible language
+            available to the application, requires all translations of static
+        </em>
+        </dd>
+        <dt>Alphabetic language</dt>
+        <dd><em>
+            small totally ordered character set, less than 100
+            graphemic entities
+        </em>
+        </dd>
+        <dt>Audible dialog</dt>
+        <dd><em>
+            an interactive bundle of communication on the
+            audible user interface, this concept is related to the concept of a
+            "dialog" on the visual user interface
+        </em>
+        </dd>
+        <dt>Audible screen</dt>
+        <dd><em>
+            a bundle of information presented on the
+            audible user interface, this concept is related to the concept of a
+            "screen" on the visual user interface
+        </em>
+        </dd>
+        <dt>Audio-based UI</dt>
+        <dd><em>
+            user interface that supports interaction with speech and sound
+        </em>
+        </dd>
+        <dt>Available language</dt>
+        <dd><em>
+            a language that has been added to the
+            application, has to be a "feasible language", the process
+            of "adding a language" requires translation of presentation
+            templates and extension of content data
+        </em>
+        </dd>
+        <dt>Bidirectional algorithm</dt>
+        <dd><em>
+            describes how to format and display bidirectional
+            text, precisely described in the Unicode standard
+        </em>
+        </dd>
+        <dt>Bidirectional text</dt>
+        <dd><em>
+            text that contains both L-R- and R-L-text
+        </em>
+        </dd>
+        <dt>Business layer</dt>
+        <dd><em>
+            a performative part of the application that processes
+            business objects to generate content data
+        </em>
+        </dd>
+        <dt>Character</dt>
+        <dd><em>
+            graphemic entity
+        </em>
+        </dd>
+        <dt>Character conversion</dt>
+        <dd><em>
+            Transformation of an encoded character
+            sequence from one character encoding standard to another, characters
+            not in the intersection of the corresponding character sets might be
+            lost
+        </em>
+        </dd>
+        <dt>Character encoding</dt>
+        <dd><em>
+            scheme for representation of characters by numeric
+            codes, usually given by an encoding table to map characters uniquely
+            on numbers
+        </em>
+        </dd>
+        <dt>Character encoding standard</dt>
+        <dd><em>
+            character encoding either approved by a
+            standard organization like ANSI, ISO, UNICODE.ORG etc. or somehow
+            established as a "de-facto standard"
+        </em>
+        </dd>
+        <dt>Character overlay</dt>
+        <dd><em>
+            use of combining characters as compounds of
+            graphemic entities, used to ease input by keyboard
+        </em>
+        </dd>
+        <dt>Character set</dt>
+        <dd><em>
+            set of all graphemic entities of a script or a language
+        </em>
+        </dd>
+        <dt>Column-based text flow</dt>
+        <dd><em>
+            arrangement of text in vertical columns, as
+            for example in traditional Chinese
+        </em>
+        </dd>
+        <dt>Combining characters</dt>
+        <dd><em>
+            components of compound graphemic entities, e.g. diacritics or Asian sub-strokes
+        </em>
+        </dd>
+        <dt>Content</dt>
+        <dd><em>
+            data that is dynamically retrieved and put together at runtime,
+            usually generated by the business layer, can contain content data
+        </em>
+        </dd>
+        <dt>Content data</dt>
+        <dd><em>
+            data that is stored in the persistence layer
+            (typically in a database), that the e-com provider can maintain and change
+        </em>
+        </dd>
+        <dt>Content generator</dt>
+        <dd><em>
+            component of the application that generates content to export it to other components
+        </em>
+        </dd>
+        <dt>Content wrapper</dt>
+        <dd><em>
+            component of the application that receives content
+            data and adds information for a user agent intended to affect presentation
+        </em>
+        </dd>
+        <dt>Currently used language</dt>
+        <dd><em>
+            Language (variant) that is actually used for
+            the processing of linguistic data at a certain point of execution of the application
+        </em>
+        </dd>
+        <dt>Customers</dt>
+        <dd><em>
+            persons or organizations who utilize and pay for the services or
+            products of an e-com provider
+        </em>
+        </dd>
+        <dt>Customization</dt>
+        <dd><em>
+            see l-customization
+        </em>
+        </dd>
+        <dt>Data export layer</dt>
+        <dd><em>
+            the components that export structured data for
+            printing, email, fax or to other applications
+        </em>
+        </dd>
+        <dt>Dialog</dt>
+        <dd><em>
+            interactive screen
+        </em>
+        </dd>
+        <dt>Dialog elements</dt>
+        <dd><em>
+            components of a dialog, "widgets" or text-based elements
+        </em>
+        </dd>
+        <dt>Document</dt>
+        <dd><em>
+
+            structured collection of data consisting of document components
+        </em>
+        </dd>
+        <dt>Dynamically formatted data</dt>
+        <dd><em>
+            dynamically generated linguistic data that
+            contains variable elements or needs to be composed at runtime
+        </em>
+        </dd>
+        <dt>E-com operator</dt>
+        <dd><em>
+            employee of an e-com provider who work with the
+            application and possibly communicate with customers
+        </em>
+        </dd>
+        <dt>E-com provider</dt>
+        <dd><em>
+            a company that wants to offer its products and
+            services in the area of e-commerce and therefore uses the international application
+        </em>
+        </dd>
+        <dt>E-languages</dt>
+        <dd><em>
+            "English-style" languages that are likely to allow
+            generic GUI design based on English as the reference language
+        </em>
+        </dd>
+        <dt>External user interface</dt>
+        <dd><em>
+            user interface on an external user agent
+        </em>
+        </dd>
+        <dt>External user agent</dt>
+        <dd><em>
+            a non-international user agent that talks to the international
+            server, typically a WWW browser or WAP client
+        </em>
+        </dd>
+        <dt>External component</dt>
+        <dd><em>
+            a non-international component
+        </em>
+        </dd>
+        <dt>Feasible language</dt>
+        <dd><em>
+            A language that can be added to the set of
+            available languages due to its structural properties
+        </em>
+        </dd>
+        <dt>Font</dt>
+        <dd><em>
+            collection of typefaces for a certain character set
+        </em>
+        </dd>
+        <dt>Freestyle data</dt>
+        <dd><em>
+            data that contains linguistic data that has no defined
+            format, its content and format cannot be anticipated at design time,
+            should be replaced by dynamically formatted data whenever possible
+        </em>
+        </dd>
+        <dt>Graphemic entity</dt>
+        <dd><em>
+            "complete characters" that can be put in
+            sequential lines, one after the other, no sub-strokes
+        </em>
+        </dd>
+        <dt>GUI</dt>
+        <dd><em>
+            graphical user interface that uses widgets (window gadgets) to
+            interact with the user, this type of user interface is distinguished
+            from text-based user interfaces or audio-based user interfaces
+        </em>
+        </dd>
+        <dt>GUI dialog</dt>
+        <dd><em>
+            interactive frame of the graphical user interface usually organized
+            within one window
+        </em>
+        </dd>
+        <dt>HTML</dt>
+        <dd><em>
+            Hypertext Markup Language as defined by W3C, the reference version
+            is HTML 4, also see XHTML.
+        </em>
+        </dd>
+        <dt>Ideographic syllabic language</dt>
+        <dd><em>
+            language with thousands of characters, that correspond to
+            pronunciations and meanings of syllables
+        </em>
+        </dd>
+        <dt>international user agent</dt>
+        <dd><em>
+            user agent developed by international to provide the "internal" user interface
+        </em>
+        </dd>
+        <dt>Input method</dt>
+        <dd><em>
+            hardware or software driven methods of data
+            entry, geared for efficient and unique input of character sequences
+            by the user; different sorts of hardware can be involved
+        </em>
+        </dd>
+        <dt>Internal user interface</dt>
+        <dd><em>
+            user interface on an international user agent
+        </em>
+        </dd>
+        <dt>Internationalization</dt>
+        <dd><em>
+            "i18n", the process that externalizes all locale-specific
+            resources and makes the locale-specific behavior of the application
+            exchangeable to allow localization
+        </em>
+        </dd>
+        <dt>Layer of functionality</dt>
+        <dd><em>
+            abstract concept to group the components
+            of the application that contribute to a certain type of functionality
+            like data storage, dynamic processing, presentation and so on
+        </em>
+        </dd>
+        <dt>Language of content</dt>
+        <dd><em>
+            the language that is assumed during
+            retrieval and processing of a current content, can be distinct from
+            the presentation language
+        </em>
+        </dd>
+        <dt>L-customization</dt>
+        <dd><em>
+            customization of linguistic default settings, is done respectively
+            by administrators of the e-com provider, by e-com operators or by
+            customers
+        </em>
+        </dd>
+        <dt>Linguistic data</dt>
+        <dd><em>
+            data that is of linguistic structure like text,
+            speech or formatted data in localized formats (like dates and so on).
+        </em>
+        </dd>
+        <dt>Linguistic operation (l-operation)</dt>
+        <dd><em>
+            Any process within the application
+            that deals with linguisitc data (l-processes), outputs linguistic
+            data (l-out-operations) or receives linguistic data (l-in-operations)
+        </em>
+        </dd>
+        <dt>Linguistic settings</dt>
+        <dd><em>
+            a bundle of parameters to determine the linguistic
+            behavior of l&nbsp;operations. Locale specifications are used within
+            these settings.
+        </em>
+        </dd>
+        <dt>Linguistic view</dt>
+        <dd><em>
+            motivation for certain linguistic settings due
+            the role of the anticipated user, e.g. admin view, user view, operator view
+        </em>
+        </dd>
+        <dt>L-negotiation</dt>
+        <dd><em>
+            process to determine appropriate linguistic settings for a
+            client-server communication including locale and character encoding
+            to use, typically necessary when the application talks as a server to
+            a user agent (client), e.g. as http-server and http-client.
+        </em>
+        </dd>
+        <dt>Locale</dt>
+        <dd><em>
+            identifies a certain language in a certain region or cultural
+            variant, is a combination of a language code (see ISO 639 in the
+            &quot;Reference Resources&quot; document), a region code (see ISO
+            3166), format and sorting methods can be associated to a locale.
+        </em>
+        </dd>
+        <dt>Localization</dt>
+        <dd><em>
+            the adaptation of an application to support a certain language
+            (translation) and the corresponding behavior (e.g. sorting, input
+            methods, layout etc.), can also include cultural adaptation
+        </em>
+        </dd>
+        <dt>L-R-language</dt>
+        <dd><em>
+            a language with row-based text flow from left to right, like
+            English or other European languages
+        </em>
+        </dd>
+        <dt>L-R-text</dt>
+        <dd><em>
+            linguistic data of an L-R-language
+        </em>
+        </dd>
+        <dt>Maintenance of content data</dt>
+        <dd><em>
+            the process of maintaining the content data in a consistent and
+            complete way providing translations for all
+            available languages, usually performed by the e-com provider
+        </em>
+        </dd>
+        <dt>Multiple Language Support</dt>
+        <dd><em>
+            support of multiple languages
+            available in an application at runtime, includes multilingual text
+            and documents, language selection at runtime, parallel multiple
+            languages and customization of context-sensitive linguistic behavior,
+            requires multilingual database design, character representation and
+            presentation templates
+        </em>
+        </dd>
+        <dt>National Language Support</dt>
+        <dd><em>
+            replacement of language in an
+            application-wide sense: One language is used for all dialogues and
+            text data within the application, traditional variant of "i18n"
+            and "l10n".
+        </em>
+        </dd>
+        <dt>Negotiation</dt>
+        <dd><em>
+            see l-negotiation
+        </em>
+        </dd>
+        <dt>Operating system</dt>
+        <dd><em>
+            software layer that manages access to and use of
+            system resources like hardware devices and CPU. Monolithic variants
+            also include a windows and desktop management system; examples are
+            Solaris and other UNIXes, MS Windows, Linux or MacOS; sometimes
+            called "the platform"
+        </em>
+        </dd>
+        <dt>PDA</dt>
+        <dd><em>
+            Personal Digital Assistant
+        </em>
+        </dd>
+        <dt>Perception channel</dt>
+        <dd><em>
+            the primary sort of sensory perception used
+            for an interaction on the user interface, can be audio, visual,
+            tactile or other.
+        </em>
+        </dd>
+        <dt>Performative component</dt>
+        <dd><em>
+            component of the application that performs
+            actions like content generation, data retrieval or content wrapping,
+            opposed to passive components like presentation templates or
+            facilities for data storage
+        </em>
+        </dd>
+        <dt>Persistence component</dt>
+        <dd><em>
+            components of persistence layer like databases, file systems and so on
+        </em>
+        </dd>
+        <dt>Persistence layer</dt>
+        <dd><em>
+            the components of the application that store
+            data in a persistent way, e.g. databases or file systems, that
+            outlast between executions of the application; business data for
+            content generation is typically kept in the persistence layer but
+            also static presentation templates are kept in persistent components
+        </em>
+        </dd>
+        <dt>Presentation language</dt>
+        <dd><em>
+            a presentation template usually has one main
+            language and the static texts in the template should be of that
+            language; when presentation templates are used their main language is
+            the "presentation language"
+        </em>
+        </dd>
+        <dt>Presentation layer</dt>
+        <dd><em>
+            collection of components that control the way
+            data is communicated and presented on the user interface
+        </em>
+        </dd>
+        <dt>Presentation templates</dt>
+        <dd><em>
+            describe the appearance of the user
+            interface, the layout and static text for a UI dialog, can be
+            implemented as XSLT-documents, only edited or created during the
+            design process at design time
+        </em>
+        </dd>
+        <dt>R-L-language</dt>
+        <dd><em>
+            a language with row-based text flow from right to left, like
+            Hebrew, Arabic or Persian.
+        </em>
+        </dd>
+        <dt>R-L-text</dt>
+        <dd><em>
+            linguistic data of an R-L-language
+        </em>
+        </dd>
+        <dt>Row-based text flow</dt>
+        <dd><em>
+            arrangement of text in horizontal lines, as usual in European languages
+        </em>
+        </dd>
+        <dt>Screen</dt>
+        <dd><em>
+            page of the user interface usually organized within one window or
+            text screen
+        </em>
+        </dd>
+        <dt>Script</dt>
+        <dd><em>
+            Writing system for a (family of ) language(s), yields a character set
+        </em>
+        </dd>
+        <dt>Static persistence component</dt>
+        <dd><em>
+            a persistence component that
+            stores data that does not change at runtime but can be extended or
+            added in the design and maintenance process, examples are
+            presentation templates or other static resources
+        </em>
+        </dd>
+        <dt>Static persistent data</dt>
+        <dd><em>
+            data that is stored in a Static persistence component
+        </em>
+        </dd>
+        <dt>Static linguistic data</dt>
+        <dd><em>
+            Linguistic data that is not changed or
+            composed at runtime and can be kept in static persistence components
+            like presentation templates
+        </em>
+        </dd>
+        <dt>Syllabic language</dt>
+        <dd><em>
+            language with some hundred characters, that mainly correspond to syllables
+        </em>
+        </dd>
+        <dt>Text-based UI</dt>
+        <dd><em>
+            visual user interface restricted to text-based
+            interactions, maybe with a notion of focussed or highlighted elements
+            or regions but without graphical window gadgets and usually no
+            multiple windows on a desktop
+        </em>
+        </dd>
+        <dt>True Type Font</dt>
+        <dd><em>
+            a font format by Apple and Microsoft for printing
+            and displaying scalable typefaces, not yet natively supported by some
+            UNIX OS like Linux
+        </em>
+        </dd>
+        <dt>Undelimited words</dt>
+        <dd><em>
+            in some languages like Thai, lexical items are
+            not separated by delimiters like the space character; such text is a
+            sequence of undelimited words
+        </em>
+        </dd>
+        <dt>Unicode</dt>
+        <dd><em>
+            character encoding standard for almost all written languages of the
+            world, defined by the Unicode Consortium, the encoding scheme is
+            compatible with ISO 10646, preferred encoding format is UTF-8
+        </em>
+        </dd>
+        <dt>Unicode font</dt>
+        <dd><em>
+            font that provides typefaces for a big portion of
+            characters defined in the Unicode standard, the biggest fonts include
+            some 10.000 characters (Cyberbit Bitstream TTF or GNU unifont),
+            others provide typefaces specifically for a certain script but
+            support the Unicode encoding scheme
+        </em>
+        </dd>
+        <dt>User agent</dt>
+        <dd><em>
+            a component that lets the user/customer interact with the
+            application, either an external component like a WWW or WAP browser
+            running on hardware like a PC, PDA, mobile phone or other networked
+            devices or an international user agent; user agents are responsible for
+            presentation of data and for accepting input from the user.
+        </em>
+        </dd>
+        <dt>User interface</dt>
+        <dd><em>
+            the components of the application that the user directly communicates with
+        </em>
+        </dd>
+        <dt>User preferences</dt>
+        <dd><em>
+            preferred settings of a user, for example his favorite languages
+        </em>
+        </dd>
+        <dt>Variable persistent data</dt>
+        <dd><em>
+            same as content data
+        </em>
+        </dd>
+        <dt>WAP</dt>
+        <dd><em>
+            Wireless Application Protocol, defined by the WAP Forum
+        </em>
+        </dd>
+        <dt>WML</dt>
+        <dd><em>
+            Wireless Markup Language, defined by the WAP Forum
+        </em>
+        </dd>
+        <dt>Writing system</dt>
+        <dd><em>
+            a more general term for "script"
+        </em>
+        </dd>
+        <dt>XHTML</dt>
+        <dd><em>
+            extensible HTML, defined by W3c, very similar to HTML but
+            defined more strictly since based on XML, will be easily extensible
+            in the future
+        </em>
+        </dd>
+        <dt>XML</dt>
+        <dd><em>
+            Extensible Markup Language, defined by W3C, can be used to
+            represent all kinds of data, an XML-document is inherently
+            tree-structured, XML supports Unicode
+        </em>
+        </dd>
+        <dt>XSL</dt>
+        <dd><em>
+            Extensible stylesheet language, defined by W3C
+        </em>
+        </dd>
+        <dt>XSLT</dt>
+        <dd><em>
+            XSL transformations, used to describe transformation of XML
+            documents to other document formats
+        </em>
+        </dd>
+    </dl>
+
+</div>
+</BODY>
+</HTML>

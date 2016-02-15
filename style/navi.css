@@ -1,0 +1,36 @@
+body {
+  background-color: #ffeedd;
+  font-family: sans-serif;
+  font-size: 9pt;
+  padding: 0.5em;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 1em;
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  margin-left: 1.2em;
+  padding: 0;
+  padding-top: 0.5em;
+  padding-bottom: 1em;
+  list-style-position: outside;
+}
+
+a:link {
+  color: black;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #202020;
+  text-decoration: none;
+}
+
+a:hover {
+  color: darkred;
+  text-decoration: underline;
+}
