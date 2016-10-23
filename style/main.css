@@ -4,6 +4,7 @@ body {
   background-image:url('images/tile.jpg');
   background-attachment: fixed;
   background-repeat: no-repeat;
+  background-size: cover;
 }
 
 a:link {
