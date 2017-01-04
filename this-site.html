@@ -1,124 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes"/>
-    <meta name="description" content="Oliver Doepner, Resume" />
-    <meta name="keywords" content="Oliver Doepner, Resume, How this site is built" />
-    <meta name="robots" content="index,follow" />
-    <link rel="stylesheet" type="text/css" href="style/main.css" />
+    <meta name="description" content="Oliver Doepner, Resume"/>
+    <meta name="keywords" content="Oliver Doepner, Resume, How this site is built"/>
+    <meta name="robots" content="index,follow"/>
+    <link rel="stylesheet" type="text/css" href="style/main.css"/>
     <title>Oliver Doepner | How this site is built</title>
     <!--[if lt IE 7]>
-    <link rel="stylesheet" type="text/css" href="style/lt-ie7.css" />
+    <link rel="stylesheet" type="text/css" href="style/lt-ie7.css"/>
     <![endif]-->
     <!--[if lt IE 9]>
-    <link rel="stylesheet" type="text/css" href="style/lt-ie9.css" />
+    <link rel="stylesheet" type="text/css" href="style/lt-ie9.css"/>
     <![endif]-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans" />
-  </head>
-  
-  <body>
-    
-    <div id="navi">
-      <iframe src="navi.html"></iframe>
-      <a href="navi.html" class="invisible">sitemap</a>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans"/>
+</head>
 
-      <div class="center">
-      <img src="pics/icons/html5-css3.png" 
-           width="100" height="43" alt="HTML5/CSS3 logo" 
-           usemap="#html5-css3-map" />
-      <map name="html5-css3-map">
-	<area shape="rect" coords="0,0,50,43" alt="HTML5"
-              href="http://validator.w3.org/check?uri=referer"
-              title="This page claims to be HTML5 compliant" />
-        <area shape="rect" coords="51,0,100,43" alt="CSS3"
-              href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3"
-              title="This page claims to use valid CSS3" />
-      </map>      
-      </div>
+<body>
+
+<div id="navi">
+    <iframe src="navi.html"></iframe>
+    <a href="navi.html" class="invisible">sitemap</a>
+
+    <div class="center">
+        <img src="pics/icons/html5-css3.png"
+             width="100" height="43" alt="HTML5/CSS3 logo"
+             usemap="#html5-css3-map"/>
+        <map name="html5-css3-map">
+            <area shape="rect" coords="0,0,50,43" alt="HTML5"
+                  href="http://validator.w3.org/check?uri=referer"
+                  title="This page claims to be HTML5 compliant"/>
+            <area shape="rect" coords="51,0,100,43" alt="CSS3"
+                  href="http://jigsaw.w3.org/css-validator/check/referer?profile=css3"
+                  title="This page claims to use valid CSS3"/>
+        </map>
     </div>
-    
-    <div id="content">
-      
-      <h1>How this site is built</h1>
+</div>
 
-      <p>
-	These web pages were mostly written in the text editors 
-	<a href="http://kate-editor.org/">Kate</a> and
-	<a href="http://www.vim.org/">Gvim</a> on a 
-	<a href="http://www.debian.org/">Debian</a> 
-	GNU/Linux system. All HTML is valid 
-	<a href="http://developers.whatwg.org/">HTML5</a>. 
-	To verify this, feel free to click on the "HTML 5" icon 
-	underneath the navigation bar.
-      </p>
-      <p>
-        The visual style and page layout attributes are completely kept 
-	outside the HTML code in a <a href="style/main.css">CSS3 compliant stylesheet</a>. 
-	To work around a few bugs and CSS standard violations of Internet 
-	Explorer 6 and older, some <a href="style/lt-ie7.css">old IE specific 
-	CSS</a> had to be used, too.
-      </p>
-      <p>
-	The layout structure is defined using HTML "div" tags and is 
-	table free, except for the presentation of tabular data.
-	The layout is meant to "flow", i.e. scale nicely when the browser
-	window or the screen font is resized. All dimensions in the layout
-	are specified as "em" (units relative to the current font size) 
-	instead of using absolute pixel values. 
-      </p>
-      <p>	
-	To let the page width grow with the content but keep it readable, 
-	a CSS "max-width" setting has been used. 
-	Since Internet Explorer 6 and older do not support
-	this attribute, a <a href="style/lt-ie7.css">workaround</a> was 
-	put in place that emulates "max-width" for those old IEs.
-      </p>
-      <p>
+<div id="content">
+
+    <h1>How this site is built</h1>
+
+    <p>
+        This site is hosted and version-managed on <a href="https://github.com/odoepner/odoepner.github.io">github</a>.
+    </p>
+
+    <p>
+        These web pages were mostly written using
+        <a href="http://www.vim.org/">Gvim</a> and
+        <a href="https://www.jetbrains.com/idea/download/">Intellij CE</a> on a
+        <a href="http://www.debian.org/">Debian</a>
+        GNU/Linux system. All HTML is valid
+        <a href="http://developers.whatwg.org/">HTML5</a>.
+        To verify this, feel free to click on the "HTML 5" icon
+        underneath the navigation bar.
+    </p>
+    <p>
+        The visual style and page layout attributes are completely kept
+        outside the HTML code in a <a href="style/main.css">CSS3 compliant stylesheet</a>.
+        To work around a few bugs and CSS standard violations of Internet
+        Explorer 6 and older, some <a href="style/lt-ie7.css">old IE specific
+        CSS</a> had to be used, too.
+    </p>
+    <p>
+        The layout structure is defined using HTML "div" tags and is
+        table free, except for the presentation of tabular data.
+        The layout is meant to "flow", i.e. scale nicely when the browser
+        window or the screen font is resized. All dimensions in the layout
+        are specified as "em" (units relative to the current font size)
+        instead of using absolute pixel values.
+    </p>
+    <p>
+        To let the page width grow with the content but keep it readable,
+        a CSS "max-width" setting has been used.
+        Since Internet Explorer 6 and older do not support
+        this attribute, a <a href="style/lt-ie7.css">workaround</a> was
+        put in place that emulates "max-width" for those old IEs.
+    </p>
+    <p>
         The <a href="http://www.w3.org/Style/CSS/current-work.en.html">CSS3</a>
         attributes border-radius and box-shadow are used for rounded corners
         and shadows of the navigation bar and the content section. IE8 or older
         do not suport this, so unfortunately with those non-CSS3 browsers the
         look of this site is a little more bland.
-      </p>
-      <p>
-	To have the CSS code validated against the World Wide Web Consortium
-	standard, just click the "CSS 3" icon on the left hand side of each page.    
-      </p>
-      <p>
-	The navigation bar is implemented as an HTML "iframe". This allows the
-	reuse of the navigation bar on all pages, without the need for any
-	server side page generation. The style settings for it are in a 
-	<a href="style/navi.css">separate stylesheet</a>.
-      </p>
-      <p>
-	The iframe is embedded in an HTML "div" with the CSS setting 
-	"position: fixed". This causes the navigation bar to stay in the same 
-	place when the content is scrolled. Unfortunately Internet Explorer 
-	6 and older do not implement this CSS feature, but modern browsers 
-	like <a href="http://www.mozilla.com/firefox/">Firefox</a>, 
-	<a href="http://www.seamonkey-project.org/">Seamonkey</a>, 
-	<a href="http://www.opera.com/">Opera</a>, 
-	<a href="http://www.apple.com/safari/">Safari</a>,
-	<a href="http://www.google.com/chrome">Chrome</a> and even 
-	IE 7 and later support it nicely.
-      </p>
-      <p>
-	All images on this site are <a href="http://en.wikipedia.org/wiki/Portable_Network_Graphics">PNG</a> 
-	files, mostly created and/or edited with the <a href="http://www.gimp.org/">GIMP</a> software package. 
-	PNG transparency is used in several places. 
-	No GIF files were used since they allow only a limited number of colors. 
-	JPG files were not used because of lacking transparency support.
-      </p>
-      <p>
-	Usually, Internet Explorer 6 and older do not support PNG transparency.
-        I use <a href="iepngfix.htc">this PNG fix</a>, developed and distributed by 
-	Angus Turnbull at <a href="http://www.twinhelix.com/css/iepngfix/">twinhelix.com</a> to work
-	around this deficiency.
-      </p>
-    </div>
-    
-  </body>
-  
+    </p>
+    <p>
+        To have the CSS code validated against the World Wide Web Consortium
+        standard, just click the "CSS 3" icon on the left hand side of each page.
+    </p>
+    <p>
+        The navigation bar is implemented as an HTML "iframe". This allows the
+        reuse of the navigation bar on all pages, without the need for any
+        server side page generation. The style settings for it are in a
+        <a href="style/navi.css">separate stylesheet</a>.
+    </p>
+    <p>
+        The iframe is embedded in an HTML "div" with the CSS setting
+        "position: fixed". This causes the navigation bar to stay in the same
+        place when the content is scrolled. Unfortunately Internet Explorer
+        6 and older do not implement this CSS feature, but modern browsers
+        like <a href="http://www.mozilla.com/firefox/">Firefox</a>,
+        <a href="http://www.seamonkey-project.org/">Seamonkey</a>,
+        <a href="http://www.opera.com/">Opera</a>,
+        <a href="http://www.apple.com/safari/">Safari</a>,
+        <a href="http://www.google.com/chrome">Chrome</a> and even
+        IE 7 and later support it nicely.
+    </p>
+    <p>
+        All images on this site are <a href="http://en.wikipedia.org/wiki/Portable_Network_Graphics">PNG</a>
+        files, mostly created and/or edited with the <a href="http://www.gimp.org/">GIMP</a> software package.
+        PNG transparency is used in several places.
+        No GIF files were used since they allow only a limited number of colors.
+        JPG files were not used because of lacking transparency support.
+    </p>
+    <p>
+        Usually, Internet Explorer 6 and older do not support PNG transparency.
+        I use <a href="iepngfix.htc">this PNG fix</a>, developed and distributed by
+        Angus Turnbull at <a href="http://www.twinhelix.com/css/iepngfix/">twinhelix.com</a> to work
+        around this deficiency.
+    </p>
+</div>
+
+</body>
+
 </html>
