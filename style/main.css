@@ -141,4 +141,9 @@ p.remarks {
 .center {
   text-align: center;
 }
+.centerflex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
