@@ -1,16 +1,11 @@
 html {
-    font-size: 10pt;
     background-image:url('images/tile.jpg');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: black;
-    font-size: 10pt;
-    font-family: serif;
     height: 100%;
 }
 body {
-    background-color: white;
     width: 40em;
     border: 1px solid slategray;
     border-radius: 0.5em;
@@ -27,13 +22,6 @@ body {
     position: fixed;
     text-decoration: none;
     font-size: 2em;
-}
-
-h1 {
-    font-size: 1.6em;
-}
-h2 {
-    font-size: 1.2em;
 }
 
 img {
