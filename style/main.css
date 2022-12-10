@@ -1,94 +1,45 @@
+html {
+    font-size: 10pt;
+    background-image:url('images/tile.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+    font-size: 10pt;
+    font-family: serif;
+    height: 100%;
+}
 body {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 12pt;
-  background-image:url('images/tile.jpg');
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
+    background-color: white;
+    width: 40em;
+    border: 1px solid slategray;
+    border-radius: 0.5em;
+    padding-left: 1em;
+    padding-right: 2em;
+    opacity: 0.7;
+    box-shadow: 0 0 2px 2px rgba(8,8,8,0.3);
 }
 
-a:link {
-  color: navy;
-  text-decoration: none;
+#m {
+    float: right;
 }
-a:hover { 
-  color: darkred;  
-  text-decoration: underline;
-}
-a:active { 
-  color: red;
+#m a {
+    position: fixed;
+    text-decoration: none;
+    font-size: 2em;
 }
 
-div#navi {
-  position: fixed;
-  width: 9em;
-  height: 30em;
-}
-
-div#navi iframe {
-  width: 100%;
-  height: 100%;
-  border: 1px solid slategray;
-  border-radius: 0.5em;
-  box-shadow: 0 0 3px 3px rgba(6,6,6,0.4);
-  margin-bottom: 1em;
-  opacity: 0.6;
-  overflow: hidden;
-}
-
-div#content {
-  margin-left: 10em;
-  border: 1px solid slategray;
-  padding: 1em;
-  padding-left: 1.5em;
-  padding-right: 1.5em;
-  max-width: 45em;
-  overflow: hidden;
-  background:rgba(255,255,255,0.8);
-  box-shadow: 0 0 3px 3px rgba(6,6,6,0.4);
-  opacity: 0.8;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  padding: 0em;
-  margin-top: 0.2em;
-}
 h1 {
-  font-size: 1.3em;
+    font-size: 1.6em;
 }
 h2 {
-  font-size: 1.2em;
-}
-h3 {
-  font-size: 1.1em;
-}
-h4 {
-  font-size: 1em;
-}
-h4 {
-  font-size: 1em;
+    font-size: 1.2em;
 }
 
 img {
   border-width: 0;
-  margin-right: 0.2em;
-}
-img.photo {
   margin-right: 1em;
   margin-bottom: 1em;
-  padding: 0;
-  display: block;
-  float: left;
-}
-
-div {
-  border-radius: 0.5em;
-}  
-
-div.photo {
-  margin-right: 0.5em;
-  margin-bottom: 0.5em;
-  float: left;
 }
 
 table {
@@ -141,9 +92,3 @@ p.remarks {
 .center {
   text-align: center;
 }
-.centerflex {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-

@@ -1,1 +1,1 @@
-This is Oliver Doepner's résumé website.
+Some pages about me as a computer programmer

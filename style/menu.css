@@ -1,0 +1,15 @@
+h1, li {
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+li {
+    width: 100;
+    background-color: lightgray;
+    display: block;
+    margin: 1em;
+    padding: 1em;
+}
